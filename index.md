@@ -5,7 +5,7 @@ The below are feature maps of baseline (CRN, only noisy input) and proposed spec
 
 | :--: | :--: | :--: | :--: | :--: | :--: |  
 | layer name | input size | hyperparam.  | output size | CRN (baseline) | composition (proposed) |  
-|input layer |   n×257×F  |      -       |      -      |        -       |            -           |  
+|input layer |   n×257×F  |      -       |      -      |   noisy spec.  |   decomposed spec.     |  
 |conv2d 1    | n×257×F    | 2×3,(1,2),16 | 16×128×F    |        -       |            -           |  
 |conv2d 2    | 16×128×F   | 2×3,(1,2),32 | 32×63×F     |        -       |            -           |  
 |conv2d 3    | 32×63×F    | 2×3,(1,2),64 | 64×31×F     |        -       |            -           |  
