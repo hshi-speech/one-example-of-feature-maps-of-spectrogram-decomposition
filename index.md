@@ -1,6 +1,6 @@
 ## ICASSP 2022 -- Spectrogram Decomposition
 
-The below are feature maps of baseline (CRN, only noisy input) and proposed spectrogram decomposition method. 
+The below are one sample of feature maps in baseline (CRN, only noisy input) and proposed spectrogram decomposition method. 
 
 
 | :--: | :--: | :--: | :--: | :--: | :--: |  
