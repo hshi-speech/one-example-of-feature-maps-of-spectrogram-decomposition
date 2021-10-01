@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+## ICASSP 2022 -- Spectrogram Decomposition
 
-You can use the [editor on GitHub](https://github.com/hshi-speech/one-example-of-feature-maps-of-spectrogram-decomposition/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+The below are feature maps of baseline (CRN, only noisy input) and proposed spectrogram decomposition method. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+| :--: | :--: | :--: | :--: | :--: | :--: |
+| layer name | input size | hyperparam.  | output size | CRN (baseline) | composition (proposed) | 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+|input layer |   n×257×F  |      -       |      -      |        -       |            -           |
+|conv2d 1    | n×257×F    | 2×3,(1,2),16 | 16×128×F    |        -       |            -           |
+|conv2d 2    | 16×128×F   | 2×3,(1,2),32 | 32×63×F     |        -       |            -           |
+|conv2d 3    | 32×63×F    | 2×3,(1,2),64 | 64×31×F     |        -       |            -           |
+|conv2d 4    | 64×31×F    | 2×3,(1,2),128| 128×15×F    |        -       |            -           |
+|conv2d 5    | 128×15×F   | 2×3,(1,2),256| 256×7×F     |        -       |            -           |
+|reshape     | 256×7×F    | -            | F×1,792     |        -       |            -           |
+|lstm layer  | F×1,792    | 1,792        | F×1,792     |        -       |            -           |
+|lstm layer  | F×1,792    | 1,792        | F×1,792     |        -       |            -           |
+|reshape     | F×1,792    | -            | 256×7×F     |        -       |            -           |
+|deconv2d 5  | 512×7×F    | 2×3,(1,2),128| 128×15×F    |        -       |            -           |
+|deconv2d 4  | 256×15×F   | 2×3,(1,2),64 | 64×31×F     |        -       |            -           |
+|deconv2d 3  | 128×31×F   | 2×3,(1,2),32 | 32×63×F     |        -       |            -           |
+|deconv2d 2  | 64×63×F    | 2×3,(1,2),16 | 16×128×F    |        -       |            -           |
+|deconv2d 1  | 32×128×F   | 2×3,(1,2),1  | 1×257×F     |        -       |            -           |
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hshi-speech/one-example-of-feature-maps-of-spectrogram-decomposition/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
